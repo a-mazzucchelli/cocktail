@@ -24,11 +24,7 @@
               bulk of the card's content.
             </p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <ul class="list-group list-group-flush"></ul>
           <div class="card-body">
             <a href="#" class="card-link">Card link</a>
             <a href="#" class="card-link">Another link</a>
@@ -44,11 +40,7 @@
               bulk of the card's content.
             </p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <ul class="list-group list-group-flush"></ul>
           <div class="card-body">
             <a href="#" class="card-link">Card link</a>
             <a href="#" class="card-link">Another link</a>
@@ -64,11 +56,7 @@
               bulk of the card's content.
             </p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <ul class="list-group list-group-flush"></ul>
           <div class="card-body">
             <a href="#" class="card-link">Card link</a>
             <a href="#" class="card-link">Another link</a>
@@ -78,22 +66,40 @@
     </div>
     <script>
       //auxiliary functions
+
+      // given a drink object, display its information in the card
       const displayDrink = (drink) => {
-        const cardImg = document.querySelector("#cocktail-1 img");
+        // img sect
+        const cardImg = document.querySelector('#cocktail-1 img');
         const imgDrink = `${drink.strDrinkThumb}/preview`;
         cardImg.src = imgDrink;
 
-        const cardTitle = document.querySelector("#cocktail-1 .card-title");
+        // title sect
+        const cardTitle = document.querySelector('#cocktail-1 .card-title');
         const nameDrink = drink.strDrink;
         cardTitle.textContent = nameDrink;
 
-        const cardText = document.querySelector("#cocktail-1 .card-text");
+        // text sect
+        const cardText = document.querySelector('#cocktail-1 .card-text');
         const descDrink = drink.strInstructions;
         cardText.textContent = descDrink;
+
+        // ingredients list
+        const cardList = document.querySelector('#cocktail-1 .list-group');
+        // generate array of ingredients
+        const ingredientsArray = [];
+        for (const property in drink) {
+          if (property.includes('strIngredient') && drink[property] !== null) {
+            ingredientsArray.push(drink[property]);
+          }
+        }
+        // generate html to append to <ul class="list-group list-group-flush">
+        let listItemsHtml = '';
+        // for blablabla <li class="list-group-item">Blended whiskey</li>
       };
 
       axios
-        .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+        .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then((response) => {
           const cocktail = response.data.drinks[0];
           displayDrink(cocktail);
