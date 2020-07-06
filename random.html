@@ -70,36 +70,39 @@
       // given a drink object, display its information in the card
       const displayDrink = (drink) => {
         // img sect
-        const cardImg = document.querySelector('#cocktail-1 img');
+        const cardImg = document.querySelector("#cocktail-1 img");
         const imgDrink = `${drink.strDrinkThumb}/preview`;
         cardImg.src = imgDrink;
 
         // title sect
-        const cardTitle = document.querySelector('#cocktail-1 .card-title');
+        const cardTitle = document.querySelector("#cocktail-1 .card-title");
         const nameDrink = drink.strDrink;
         cardTitle.textContent = nameDrink;
 
         // text sect
-        const cardText = document.querySelector('#cocktail-1 .card-text');
+        const cardText = document.querySelector("#cocktail-1 .card-text");
         const descDrink = drink.strInstructions;
         cardText.textContent = descDrink;
 
         // ingredients list
-        const cardList = document.querySelector('#cocktail-1 .list-group');
         // generate array of ingredients
         const ingredientsArray = [];
         for (const property in drink) {
-          if (property.includes('strIngredient') && drink[property] !== null) {
+          if (property.includes("strIngredient") && drink[property] !== null) {
             ingredientsArray.push(drink[property]);
           }
         }
         // generate html to append to <ul class="list-group list-group-flush">
-        let listItemsHtml = '';
-        // for blablabla <li class="list-group-item">Blended whiskey</li>
+        const cardList = document.querySelector("#cocktail-1 .list-group");
+        let listItemsHtml = "";
+        ingredientsArray.forEach((ingredient) => {
+          listItemsHtml += `<li class="list-group-item">${ingredient}</li>`;
+        });
+        cardList.innerHTML = listItemsHtml;
       };
 
       axios
-        .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+        .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
         .then((response) => {
           const cocktail = response.data.drinks[0];
           displayDrink(cocktail);
