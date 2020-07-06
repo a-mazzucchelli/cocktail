@@ -81,9 +81,12 @@
       const displayDrink = (drink) => {
         let cardTitle = document.querySelector("#cocktail-1 .card-title");
         let nameDrink = drink.strDrink;
-        console.log(cardTitle);
-        console.log(nameDrink);
+
         cardTitle.textContent = nameDrink;
+
+        const cardImg = document.querySelector("#cocktail-1 img");
+         const imgDrink = `${drink.strDrinkThumb}/preview`; 
+         cardImg.src = imgDrink
       };
 
       axios
