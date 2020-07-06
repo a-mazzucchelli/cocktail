@@ -79,14 +79,17 @@
     <script>
       //auxiliary functions
       const displayDrink = (drink) => {
-        let cardTitle = document.querySelector("#cocktail-1 .card-title");
-        let nameDrink = drink.strDrink;
+        const cardImg = document.querySelector("#cocktail-1 img");
+        const imgDrink = `${drink.strDrinkThumb}/preview`;
+        cardImg.src = imgDrink;
 
+        const cardTitle = document.querySelector("#cocktail-1 .card-title");
+        const nameDrink = drink.strDrink;
         cardTitle.textContent = nameDrink;
 
-        const cardImg = document.querySelector("#cocktail-1 img");
-         const imgDrink = `${drink.strDrinkThumb}/preview`; 
-         cardImg.src = imgDrink
+        const cardText = document.querySelector("#cocktail-1 .card-text");
+        const descDrink = drink.strInstructions;
+        cardText.textContent = descDrink;
       };
 
       axios
