@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   </head>
   <body>
-    <div class="container card-container" style="margin: 2rem auto">
+    <div class="container card-container" style="margin: 2rem auto;">
       <div class="row">
         <div id="cocktail-1" class="card col" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="..." />
@@ -76,6 +76,23 @@
         </div>
       </div>
     </div>
-    <script></script>
+    <script>
+      //auxiliary functions
+      const displayDrink = (drink) => {
+        let cardTitle = document.querySelector("#cocktail-1 .card-title");
+        let nameDrink = drink.strDrink;
+        console.log(cardTitle);
+        console.log(nameDrink);
+        cardTitle.textContent = nameDrink;
+      };
+
+      axios
+        .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+        .then((response) => {
+          const cocktail = response.data.drinks[0];
+          displayDrink(cocktail);
+          //console.log(cocktail);
+        });
+    </script>
   </body>
 </html>
