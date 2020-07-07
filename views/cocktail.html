@@ -4,20 +4,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   <title>Cocktail page</title>
 </head>
 
 <body>
-  <h1>Questa è la pagina del cocktail: </h1>
+  <h1 class="drink-name">Questo è: </h1>
+  <h3 class="drink-id">Questa è la pagina del cocktail id: </h3>
   <script>
+ 
+    //prendo id url
     const urlParams = new URLSearchParams(window.location.search);
+    const drinkId = urlParams.get('drinkId');
 
-    const myParam = urlParams.get('drinkId');
-    console.log(myParam)
-    const strTitle = document.querySelector(`h1`);
+    //popola elementi html
+    axios
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
+      .then((response) => {
+        const cocktail = response.data.drinks[0];
+        const drinkName = document.querySelector(".drink-name")
+        drinkName.textContent += cocktail.strDrink
+      
+      });
 
-    strTitle.innerText += myParam;
   </script>
+
 </body>
 
 </html>

@@ -11,13 +11,15 @@
 </head>
 
 <body>
-  <div class="container card-container" style="margin: 2rem auto;">
+
+  
+  <section class="container card-container" style="margin: 2rem auto;">
     <div class="row">
-      <div id="cocktail-1" class="card col" style="width: 18rem;">
+      <div id="cocktail-1" class="card col p-1" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           <p class="card-text"></p>
         </div>
         <ul class="list-group list-group-flush"></ul>
@@ -31,12 +33,12 @@
         </div>
       </div>
 
-      <div id="cocktail-2" class="card col" style="width: 18rem;">
+      <div id="cocktail-2" class="card col p-1" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted"></h6>
-          <p class="card-text"></p>
+          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
+          <p class="card-text d-none"></p>
         </div>
         <ul class="list-group list-group-flush"></ul>
         <div class="card-body">
@@ -49,11 +51,11 @@
         </div>
       </div>
 
-      <div id="cocktail-3" class="card col" style="width: 18rem;">
+      <div id="cocktail-3" class="card col p-1" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted"></h6>
+          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           <p class="card-text"></p>
         </div>
         <ul class="list-group list-group-flush"></ul>
@@ -67,7 +69,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <table class="table favourites-table" style="margin: 4rem;">
     <thead>
@@ -112,7 +114,8 @@
       // generate array of ingredients
       const ingredientsArray = [];
       for (const property in drink) {
-        if (property.includes('strIngredient') && drink[property] !== null) {
+        if (property.includes('strIngredient') && drink[property] !== null && drink[property] !== "") {
+          //178320
           ingredientsArray.push(drink[property]);
         }
       }
