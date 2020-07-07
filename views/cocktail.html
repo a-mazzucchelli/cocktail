@@ -12,20 +12,22 @@
 
 <body>
   <h1 class="drink-name">Questo è: </h1>
-  <h3 class="drink-id">Questa è la pagina del cocktail id: </h3>
+  <h3 class="drink-id">Cocktail con id: </h3>
   <script>
  
     //prendo id url
     const urlParams = new URLSearchParams(window.location.search);
-    const drinkId = urlParams.get('drinkId');
+    const drinkIdParam = urlParams.get('drinkId');
 
     //popola elementi html
     axios
-      .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkIdParam}`)
       .then((response) => {
         const cocktail = response.data.drinks[0];
         const drinkName = document.querySelector(".drink-name")
         drinkName.textContent += cocktail.strDrink
+        const drinkId = document.querySelector(".drink-id")
+        drinkId.textContent += cocktail.idDrink
       
       });
 
