@@ -156,8 +156,8 @@
 
           // fill cells content
           favNumberCell.innerHTML = favCounter + 1;
-          // TASK voglio che questo id sia un link alla route "/cocktail/idDrink"
-          favIdCell.innerHTML = cocktail.idDrink;
+          // TASK voglio che questo id sia un link alla route "/cocktail?drinkId=idDrink"
+          favIdCell.innerHTML = `<a href="/cocktail?drinkId=${cocktail.idDrink}">${cocktail.idDrink}</a>`;
           favNameCell.innerHTML = cocktail.strDrink;
           favCategoryCell.innerHTML = cocktail.strCategory;
 
