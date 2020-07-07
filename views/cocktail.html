@@ -13,6 +13,7 @@
 <body>
   <h1 class="drink-name">Questo è: </h1>
   <h3 class="drink-id">Cocktail con id: </h3>
+  <p class="drink-desc">Descrizione passaggi: </p>
   <script>
  
     //prendo id url
@@ -28,6 +29,8 @@
         drinkName.textContent += cocktail.strDrink
         const drinkId = document.querySelector(".drink-id")
         drinkId.textContent += cocktail.idDrink
+        const drinkDesc = document.querySelector(".drink-desc")
+        drinkDesc.textContent += cocktail.strInstructions
       
       });
 
