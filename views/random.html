@@ -107,6 +107,11 @@
       const nameDrink = drink.strDrink;
       cardTitle.textContent = nameDrink;
 
+      // subtitle sect
+      const cardSubTitle =  document.querySelector(`#${idString} .card-subtitle`);
+      const idDrink = drink.idDrink;
+      cardSubTitle.textContent = idDrink;
+
       // text sect
       const cardText = document.querySelector(`#${idString} .card-text`);
       const descDrink = drink.strInstructions;
