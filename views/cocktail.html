@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cocktail page</title>
-  </head>
-  <body>
-    <!-- TASK voglio che qui la pagina mi dica l'id del cocktail (che trovi nella barra di ricerca) -->
-    <h1>questa è la pagina del cocktail</h1>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cocktail page</title>
+</head>
+
+<body>
+  <!-- TASK voglio che qui la pagina mi dica l'id del cocktail (che trovi nella barra di ricerca) -->
+  <h1>Questa è la pagina del cocktail: </h1>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const myParam = urlParams.get('drinkId');
+    console.log(myParam)
+    const strTitle = document.querySelector(`h1`);
+
+    strTitle.innerText += myParam;
+  </script>
+</body>
+
 </html>

@@ -15,7 +15,7 @@ app.get('/random', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/random.html'));
 });
 
-app.get('/cocktail/:idCocktail', (req, res) => {
+app.get('/cocktail', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/cocktail.html'));
 })
 
