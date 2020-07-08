@@ -12,14 +12,14 @@
 .card-title-custom {
 	display: inline-flex;
 	text-align: left;
-	background-color: rgb(197, 75, 5);
-	color: rgb(204, 201, 0);
+	text-shadow: 2px 0 0 #f6b969, -2px 0 0 #f6b969, 0 2px 0 #f6b969, 0 -2px 0 #f6b969, 1px 1px #f6b969, -1px -1px 0 #f6b969, 1px -1px 0 #f6b969, -1px 1px 0 #f6b969;
+	color: rgb(231, 134, 7);
 	margin-top: -4.5rem;
 }
 .card-ingredients {
 	display: inline-flex;
-	background-color: rgb(197, 75, 5);
-	color: rgb(204, 201, 0);
+  text-shadow: 2px 0 0 #f6b969, -2px 0 0 #f6b969, 0 2px 0 #f6b969, 0 -2px 0 #f6b969, 1px 1px #f6b969, -1px -1px 0 #f6b969, 1px -1px 0 #f6b969, -1px 1px 0 #f6b969;
+	color: rgb(231, 134, 7);
 }
 .card-text-custom {
 	position: relative;
