@@ -13,13 +13,15 @@
 	display: inline-flex;
 	text-align: left;
 	text-shadow: 2px 0 0 #f6b969, -2px 0 0 #f6b969, 0 2px 0 #f6b969, 0 -2px 0 #f6b969, 1px 1px #f6b969, -1px -1px 0 #f6b969, 1px -1px 0 #f6b969, -1px 1px 0 #f6b969;
-	color: rgb(231, 134, 7);
+	color: rgb(189, 115, 18);
 	margin-top: -4.5rem;
+	margin-left: 1rem;
 }
 .card-ingredients {
 	display: inline-flex;
   text-shadow: 2px 0 0 #f6b969, -2px 0 0 #f6b969, 0 2px 0 #f6b969, 0 -2px 0 #f6b969, 1px 1px #f6b969, -1px -1px 0 #f6b969, 1px -1px 0 #f6b969, -1px 1px 0 #f6b969;
-	color: rgb(231, 134, 7);
+	color: rgb(189, 115, 18);
+	margin-left: 1rem;
 }
 .card-text-custom {
 	position: relative;
