@@ -1,10 +1,36 @@
 .card-container {
   margin: 2rem auto;
+ 
 }
 
-.card-row {
-  height: 85vh;
+ .card-row {
+  height: 85vh; 
+  
 }
+
+ .btn-custom{
+  position: absolute;
+  top:0;
+  right:0;
+  /* align-self: ri; */
+  
+ }
+
+.card-title-custom {
+  display: inline-flex;
+  background-color: rgb(197, 75, 5);
+  color:rgb(204, 201, 0);
+  margin: 0.5rem;
+  position:relative;
+  top:-5.5rem;
+  /* bottom:5.5rem; */
+   
+} 
+ .card-text-custom{
+  position:relative;
+  /* top:-5.5rem; */
+  
+} 
 
 .cocktail-card {
   width: 18rem;
@@ -15,6 +41,9 @@
 .cocktail-card-img-top {
   width: 200px;
   margin: 1rem auto;
+  align-self: center;
+   position: absolute; 
+  top:1rem;
 }
 
 .favourites-table {
@@ -22,14 +51,15 @@
   width: 85vw;
 }
 
-.button-sect {
+/* .button-sect {
   width: 200px;
   align-self: center;
   position: absolute;
   bottom: 1rem;
-}
+} */
 
 .button-shuffle {
   width: 50vw;
   margin: 0 auto;
 }
+  
