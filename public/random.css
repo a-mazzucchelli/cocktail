@@ -1,0 +1,17 @@
+.container .card-container {
+	margin: 2rem auto;
+}
+
+.row {
+	height: 80vh;
+}
+
+.card .col .p-1 {
+	width: 18rem;
+	text-align: center;
+}
+
+.card-img-top {
+	width: 150px;
+	margin: 0.5rem auto;
+}
