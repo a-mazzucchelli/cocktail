@@ -1,0 +1,26 @@
+/*nuove classi*/
+.navbar-background-color {
+  background-color: #6335e1;
+}
+
+.background-container {
+  background-color: #9955f0;
+}
+
+.container-title {
+  color: white;
+}
+
+.button-container {
+  margin: auto;
+}
+
+.button-custom {
+  margin-top: 2rem;
+  white-space: nowrap;
+  background-color: #21fff2;
+  border-color: #21fff2;
+  color: 9955F0;
+  border-radius: 45px;
+  padding: 17px 24px;
+}

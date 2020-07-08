@@ -21,6 +21,10 @@ app.get('/cocktail', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/cocktail.html'));
 });
 
+app.get('/cardview', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/cardview.html'));
+})
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/404.html'));
 });
