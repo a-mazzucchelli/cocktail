@@ -1,3 +1,9 @@
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
 .custom-navbar {
   background-color: #6335e1;
 }
@@ -17,7 +23,7 @@
 }
 
 main {
-  min-height: 93.125vh;
+  height: 100%;
   background-color: #9955f0;
 }
 
