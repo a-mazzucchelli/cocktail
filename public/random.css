@@ -3,7 +3,7 @@
 }
 
 .card-row {
-  height: 80vh;
+  height: 85vh;
 }
 
 .cocktail-card {
@@ -11,8 +11,6 @@
   text-align: center;
   margin-right: 3rem;
 }
-
-
 
 .cocktail-card-img-top {
   width: 200px;
@@ -29,4 +27,9 @@
   align-self: center;
   position: absolute;
   bottom: 1rem;
+}
+
+.button-shuffle {
+  width: 50vw;
+  margin: 0 auto;
 }
