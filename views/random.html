@@ -36,12 +36,12 @@
 </header>
 
 <body>
-  <section class="container card-container d-flex flex-column">
+  <section class="container card-container d-flex flex-column ">
 
     <div id="cocktail-1" class="card cocktail-card">
       <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
-      <h3 class="card-title card-title-custom"></h3>
-      <h5 class="card-title card-title-custom">Ingredients</h5>
+      <h4 class="card-title card-title-custom"></h4>
+      <h5 class="card-ingredients">Ingredients</h5>
       <a id="addFav-1" role="button" class="btn btn-info btn-custom">
         Add to Favourites
       </a>
@@ -49,29 +49,46 @@
       <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
     </div>
 
-    <div id="cocktail-2" class=" card  cocktail-card">
+    <div id="cocktail-2" class="card cocktail-card">
       <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
-      <h3 class="card-title card-title-custom"></h3>
-      <h5 class="card-title card-title-custom">Ingredients</h5>
+      <h4 class="card-title card-title-custom"></h4>
+      <h5 class="card-ingredients">Ingredients</h5>
       <a id="addFav-2" role="button" class="btn btn-info btn-custom">
         Add to Favourites
       </a>
-      <p class="card-text "></p>
+      <p class="card-text card-text-custom "></p>
       <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
     </div>
 
-    <div id="cocktail-3" class=" card cocktail-card">
+    <div id="cocktail-3" class="card cocktail-card ">
       <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
-      <h3 class="card-title card-title-custom"></h3>
-      <h5 class="card-title card-title-custom">Ingredients</h5>
+      <h4 class="card-title card-title-custom"></h4>
+      <h5 class="card-ingredients">Ingredients</h5>
       <a id="addFav-3" role="button" class="btn btn-info btn-custom">
         Add to Favourites
       </a>
-      <p class="card-text "></p>
+      <p class="card-text card-text-custom "></p>
       <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
     </div>
 
-
+    <!--         <div id="cocktail-2" class="card col p-1 cocktail-card">
+          <img src="..." class="card-img-top cocktail-card-img-top" alt="..." />
+          <h3 class="card-title"></h3>
+          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
+          <p class="card-text d-none"></p>
+          <h6 class="text-muted">Ingredients</h6>
+          <ul class="list-group list-group-flush"></ul>
+          <div class="button-sect">
+            <button
+              id="addFav-2"
+              type="button"
+              class="btn btn-info btn-lg btn-block"
+            >
+              Add to Favourites
+            </button>
+          </div>
+        </div>
+        -->
     </div>
   </section>
 
@@ -118,6 +135,7 @@
       const descDrink = drink.strInstructions;
       cardText.textContent = descDrink;
 
+
       // ingredients list
       // generate array of ingredients
       const ingredientsArray = [];
@@ -131,15 +149,20 @@
           ingredientsArray.push(drink[property]);
         }
       }
+      const cardIngredients = document.querySelector(`#${idString} .card-ingredients`);
+      const nIngredients = ingredientsArray.length;
+      cardIngredients.textContent = `${nIngredients} ingredients`;
+
       // generate html to append to <ul class="list-group list-group-flush">
       const cardList = document.querySelector(`#${idString} .list-group`);
       let listItemsHtml = '';
       ingredientsArray.forEach((ingredient) => {
         listItemsHtml += `<li class="list-group-item">${ingredient}</li>`;
       });
-      let nIngredients =ingredientsArray.length
-      console.log(nIngredients)
+
       /* cardList.innerHTML = listItemsHtml; */
+
+
     };
 
     // given an idString, "call" axios to display a new cocktail
