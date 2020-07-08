@@ -24,13 +24,13 @@
           <p class="card-text d-none"></p>
           <ul class="list-group list-group-flush"></ul>
           <div class="button-sect">
-            <button
+            <!--  <button
               id="shuffle-1"
               type="button"
               class="btn btn-primary btn-lg btn-block"
             >
               Get a new Cocktail!
-            </button>
+            </button> -->
             <button
               id="addFav-1"
               type="button"
@@ -48,13 +48,13 @@
           <p class="card-text d-none"></p>
           <ul class="list-group list-group-flush"></ul>
           <div class="button-sect">
-            <button
+            <!-- <button
               id="shuffle-2"
               type="button"
               class="btn btn-primary btn-lg btn-block"
             >
               Get a new Cocktail!
-            </button>
+            </button> -->
             <button
               id="addFav-2"
               type="button"
@@ -72,13 +72,13 @@
           <p class="card-text d-none"></p>
           <ul class="list-group list-group-flush"></ul>
           <div class="button-sect">
-            <button
+            <!-- <button
               id="shuffle-3"
               type="button"
               class="btn btn-primary btn-lg btn-block"
             >
               Get a new Cocktail!
-            </button>
+            </button> -->
             <button
               id="addFav-3"
               type="button"
@@ -90,6 +90,16 @@
         </div>
       </div>
     </section>
+
+    <div>
+      <button
+        id="shuffle"
+        type="button"
+        class="btn btn-primary btn-lg btn-block"
+      >
+        Get new Cocktails !
+      </button>
+    </div>
 
     <table class="table favourites-table">
       <thead>
@@ -135,9 +145,9 @@
         const ingredientsArray = [];
         for (const property in drink) {
           if (
-            property.includes('strIngredient') &&
+            property.includes("strIngredient") &&
             drink[property] !== null &&
-            drink[property] !== ''
+            drink[property] !== ""
           ) {
             //178320
             ingredientsArray.push(drink[property]);
@@ -145,7 +155,7 @@
         }
         // generate html to append to <ul class="list-group list-group-flush">
         const cardList = document.querySelector(`#${idString} .list-group`);
-        let listItemsHtml = '';
+        let listItemsHtml = "";
         ingredientsArray.forEach((ingredient) => {
           listItemsHtml += `<li class="list-group-item">${ingredient}</li>`;
         });
@@ -155,7 +165,7 @@
       // given an idString, "call" axios to display a new cocktail
       const shuffle = (idString) => {
         axios
-          .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+          .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
           .then((response) => {
             const cocktail = response.data.drinks[0];
             displayDrink(cocktail, idString);
@@ -172,7 +182,7 @@
           )
           .then((response) => {
             const cocktail = response.data.drinks[0];
-            const favTable = document.querySelector('.favourites-table tbody');
+            const favTable = document.querySelector(".favourites-table tbody");
 
             // create new row
             const row = favTable.insertRow(favCounter);
@@ -194,45 +204,52 @@
       };
 
       // button listeners (shuffle)
-      const btnShuffle1 = document.querySelector(`#shuffle-1`);
+      /*  const btnShuffle1 = document.querySelector(`#shuffle-1`);
       const btnShuffle2 = document.querySelector(`#shuffle-2`);
-      const btnShuffle3 = document.querySelector(`#shuffle-3`);
+      const btnShuffle3 = document.querySelector(`#shuffle-3`); */
+      const btnShuffle = document.querySelector(`#shuffle`);
+      btnShuffle.addEventListener("click", () => {
+        shuffle("cocktail-1");
+        shuffle("cocktail-2");
+        shuffle("cocktail-3");
+      });
+     
 
-      btnShuffle1.addEventListener('click', () => {
-        shuffle('cocktail-1');
+      /* btnShuffle1.addEventListener("click", () => {
+        shuffle("cocktail-1");
       });
-      btnShuffle2.addEventListener('click', () => {
-        shuffle('cocktail-2');
+      btnShuffle2.addEventListener("click", () => {
+        shuffle("cocktail-2");
       });
-      btnShuffle3.addEventListener('click', () => {
-        shuffle('cocktail-3');
-      });
+      btnShuffle3.addEventListener("click", () => {
+        shuffle("cocktail-3");
+      }); */
 
       // button listeners (add to favourites)
       const btnAddFav1 = document.querySelector(`#addFav-1`);
       const btnAddFav2 = document.querySelector(`#addFav-2`);
       const btnAddFav3 = document.querySelector(`#addFav-3`);
 
-      btnAddFav1.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
+      btnAddFav1.addEventListener("click", () => {
+        const drinkId = document.querySelector("#cocktail-1 .card-subtitle")
           .textContent;
         addFavRow(drinkId);
       });
-      btnAddFav2.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
+      btnAddFav2.addEventListener("click", () => {
+        const drinkId = document.querySelector("#cocktail-2 .card-subtitle")
           .textContent;
         addFavRow(drinkId);
       });
-      btnAddFav3.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
+      btnAddFav3.addEventListener("click", () => {
+        const drinkId = document.querySelector("#cocktail-3 .card-subtitle")
           .textContent;
         addFavRow(drinkId);
       });
 
       // display cocktail info at 1st visit
-      shuffle('cocktail-1');
-      shuffle('cocktail-2');
-      shuffle('cocktail-3');
+      shuffle("cocktail-1");
+      shuffle("cocktail-2");
+      shuffle("cocktail-3");
     </script>
   </body>
 </html>
