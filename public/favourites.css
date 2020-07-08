@@ -1,3 +1,36 @@
-h1 {
-  color: red;
+.custom-navbar {
+  background-color: #6335e1;
+}
+
+.custom-navbar-brand {
+  color: white;
+  font-weight: lighter;
+}
+
+.custom-navbar-link {
+  color: white;
+  font-weight: lighter;
+}
+
+.custom-navbar-item-active {
+  font-weight: bolder;
+}
+
+main {
+  min-height: 93.125vh;
+  background-color: #9955f0;
+}
+
+.custom-main-title {
+  color: white;
+  padding: 2rem 0 2rem 1.5rem;
+}
+
+.custom-table {
+  background-color: #9955f0;
+  padding: 0 1.5rem;
+}
+
+tr.bordered {
+  border-bottom: 1px solid #000;
 }
