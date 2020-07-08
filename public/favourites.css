@@ -4,6 +4,11 @@ body {
   height: 100vh;
 }
 
+.navbar-nav a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .custom-navbar {
   background-color: #6335e1;
 }
