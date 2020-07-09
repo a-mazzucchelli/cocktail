@@ -1,10 +1,24 @@
 /*nuove classi*/
-.custom-container {
-  background-color: #9955f0;
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(to bottom left, #9955f0, #6335e1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .custom-navbar {
   background-color: #6335e1;
+}
+
+.custom-navbar a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .custom-navbar-brand {
@@ -15,9 +29,17 @@
   color: white;
 }
 
+main {
+  height: 100%;
+}
+
 .custom-title {
   color: white;
   padding: 2rem 0 0 1.25rem;
+}
+
+.custom-container {
+  justify-content: center;
 }
 
 .custom-button {
