@@ -217,16 +217,18 @@
 
       // given and idString, push it in an array to serve as a cookie to favourites.html
 
-      let idConcate
-      const addToFavourites = (idString) => {};
+      // let idConcate
+      // const addToFavourites = (idString) => {};
 
       // button listener (add to favourites)
       const btnAddFav1 = document.querySelector(`#addFav-1`);
       const btnAddFav2 = document.querySelector(`#addFav-2`);
       const btnAddFav3 = document.querySelector(`#addFav-3`);
 
+      let buttonPressed = ''
+
       btnAddFav1.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-1 .card-subtitle');
+        // const drinkId = document.querySelector('#cocktail-1 .card-subtitle');
         document.cookie = `buttonPressed=1; path=/favourites`;
       });
       btnAddFav2.addEventListener('click', () => {
