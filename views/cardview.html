@@ -37,10 +37,10 @@
       <h1 class="custom-title">Lorem Ipsum</h1>
       <div class="container mt-3 d-flex custom-container">
         <div class="row justify-content-center">
-          <div id="cocktail-1" class="card cocktail-card">
+          <div id="cocktail-1" class="card cocktail-card m-3">
             <img
               src="..."
-              class="card-img-top cocktail-card-img-top-custom"
+              class="card-img-top cocktail-card-img-top-custom gradient"
               alt="..."
             />
             <h4 class="card-title card-title-custom"></h4>
@@ -56,7 +56,7 @@
             <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
 
-          <div id="cocktail-2" class="card cocktail-card">
+          <div id="cocktail-2" class="card cocktail-card m-3">
             <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
             <h4 class="card-title card-title-custom"></h4>
             <h5 class="card-ingredients">Ingredients</h5>
@@ -68,7 +68,7 @@
             <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
 
-          <div id="cocktail-3" class="card cocktail-card ">
+          <div id="cocktail-3" class="card cocktail-card m-3">
             <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
             <h4 class="card-title card-title-custom"></h4>
             <h5 class="card-ingredients">Ingredients</h5>
@@ -153,34 +153,34 @@
 
       // given an idString, add a row with cocktail info to the Favourites Table
       // counter to know how many favourites have been added, also used in the first column of the table
-      let favCounter = 0;
-      const addFavRow = (idString) => {
-        axios
-          .get(
-            `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idString}`
-          )
-          .then((response) => {
-            const cocktail = response.data.drinks[0];
-            const favTable = document.querySelector(".favourites-table tbody");
+      // let favCounter = 0;
+      // const addFavRow = (idString) => {
+      //   axios
+      //     .get(
+      //       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idString}`
+      //     )
+      //     .then((response) => {
+      //       const cocktail = response.data.drinks[0];
+      //       const favTable = document.querySelector(".favourites-table tbody");
 
-            // create new row
-            const row = favTable.insertRow(favCounter);
-            const favNumberCell = row.insertCell(0);
-            const favIdCell = row.insertCell(1);
-            const favNameCell = row.insertCell(2);
-            const favCategoryCell = row.insertCell(3);
+      //       // create new row
+      //       const row = favTable.insertRow(favCounter);
+      //       const favNumberCell = row.insertCell(0);
+      //       const favIdCell = row.insertCell(1);
+      //       const favNameCell = row.insertCell(2);
+      //       const favCategoryCell = row.insertCell(3);
 
-            // fill cells content
-            favNumberCell.innerHTML = favCounter + 1;
-            // TASK voglio che questo id sia un link alla route "/cocktail?drinkId=idDrink"
-            favIdCell.innerHTML = `<a href="/cocktail?drinkId=${cocktail.idDrink}">${cocktail.idDrink}</a>`;
-            favNameCell.innerHTML = cocktail.strDrink;
-            favCategoryCell.innerHTML = cocktail.strCategory;
+      //       // fill cells content
+      //       favNumberCell.innerHTML = favCounter + 1;
+      //       // TASK voglio che questo id sia un link alla route "/cocktail?drinkId=idDrink"
+      //       favIdCell.innerHTML = `<a href="/cocktail?drinkId=${cocktail.idDrink}">${cocktail.idDrink}</a>`;
+      //       favNameCell.innerHTML = cocktail.strDrink;
+      //       favCategoryCell.innerHTML = cocktail.strCategory;
 
-            // adjust number of favourites added
-            favCounter++;
-          });
-      };
+      //       // adjust number of favourites added
+      //       favCounter++;
+      //     });
+      // };
 
       // button listener (shuffle)
       const btnShuffle = document.querySelector(`#shuffle`);
@@ -195,21 +195,21 @@
       const btnAddFav2 = document.querySelector(`#addFav-2`);
       const btnAddFav3 = document.querySelector(`#addFav-3`);
 
-      btnAddFav1.addEventListener("click", () => {
-        const drinkId = document.querySelector("#cocktail-1 .card-subtitle")
-          .textContent;
-        addFavRow(drinkId);
-      });
-      btnAddFav2.addEventListener("click", () => {
-        const drinkId = document.querySelector("#cocktail-2 .card-subtitle")
-          .textContent;
-        addFavRow(drinkId);
-      });
-      btnAddFav3.addEventListener("click", () => {
-        const drinkId = document.querySelector("#cocktail-3 .card-subtitle")
-          .textContent;
-        addFavRow(drinkId);
-      });
+      // btnAddFav1.addEventListener("click", () => {
+      //   const drinkId = document.querySelector("#cocktail-1 .card-subtitle")
+      //     .textContent;
+      //   addFavRow(drinkId);
+      // });
+      // btnAddFav2.addEventListener("click", () => {
+      //   const drinkId = document.querySelector("#cocktail-2 .card-subtitle")
+      //     .textContent;
+      //   addFavRow(drinkId);
+      // });
+      // btnAddFav3.addEventListener("click", () => {
+      //   const drinkId = document.querySelector("#cocktail-3 .card-subtitle")
+      //     .textContent;
+      //   addFavRow(drinkId);
+      // });
 
       // display cocktail info at 1st visit
       shuffle("cocktail-1");

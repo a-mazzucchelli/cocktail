@@ -66,16 +66,13 @@ main {
   text-shadow: 2px 0 0 #d6aaff85, -2px 0 0 #d6aaff85, 0 2px 0 #d6aaff85, 0 -2px 0 #d6aaff85, 1px 1px #d6aaff85, -1px -1px 0 #d6aaff85, 1px -1px 0 #d6aaff85, -1px 1px 0 #d6aaff85;
 	margin-left: 0.5rem;
 }
-.cocktail-card {
-	background-color: #bd77ffa2;
-}
 .icon{
 	max-width: 22%;
 	max-height: 22%;
 }
 .card-text-custom {
-	position: relative;
-	top: 1rem;
+  text-align: left;
+  padding: 1rem;
 }
 .cocktail-card-img-top {
 	width: 200px;
@@ -84,10 +81,10 @@ main {
 	position: absolute;
 	top: 1rem;
 }
-.cocktail-card {
-	width: 18rem;
+.card.cocktail-card {
+	width: 21rem;
 	text-align: center;
-	margin-right: 3rem;
+  background-color: hsla(270, 79%, 85%, 0.774);
 }
 
 
