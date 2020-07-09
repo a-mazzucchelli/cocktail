@@ -16,8 +16,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-    <script src="common.js"></script>
-    <link rel="stylesheet" href="favourites.css" />
+    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="css/favourites.css" />
   </head>
   <body>
     <header>
@@ -57,43 +57,6 @@
       </table>
     </main>
 
-    <script>
-      const favouritesSet = [...new Set(getFavourites())];
-
-      const favTable = document.querySelector('.table');
-
-      const favouritesData = [];
-      let responseCount = 0;
-      favouritesSet.forEach((drinkId, index) => {
-        axios
-          .get(
-            `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`
-          )
-          .then((response) => {
-            const drink = response.data.drinks[0];
-
-            favouritesData[index] = drink;
-            responseCount++;
-
-            if (responseCount === favouritesSet.length) {
-              renderFavourites(favouritesData, favTable);
-            }
-          });
-      });
-
-      // const favourites_data = []; // [{}, empty, {}, empty, {name: 'Mojito', ...}] => length = 5
-      // let response_count = 0;
-
-      // favourites.forEach((fav, idx) => {
-      //   axios.get('...').then((res) => {
-      //     const drink = res.data;
-      //     favourites_data[idx] = drink;
-      //     response_count++;
-      //     if (response_count === favourites.length) {
-      //       // renderFavourites()
-      //     }
-      //   });
-      // });
-    </script>
+    <script src="js/favourites.js"></script>
   </body>
 </html>
