@@ -12,86 +12,65 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="background-container">
+  <body class="custom-container">
     <header>
-      <!--  nuova classe : navbar-background-color   -->
-      <nav class="navbar navbar-expand-lg navbar-light navbar-background-color">
-        <a class="navbar-brand pl-2" href="#">LOGO</a>
+      <nav
+        class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar"
+      >
+        <a class="navbar-brand pl-2 custom-navbar-brand" href="#">Logo</a>
 
-        <div
-          class="collapse navbar-collapse col-md-4 offset-md-6"
-          id="navbarNavDropdown"
-        >
-          <ul class="navbar-nav pl-3">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-          </ul>
-        </div>
+        <ul class="navbar-nav d-flex flex-row pl-3">
+          <li class="nav-item pr-3">
+            <a class="nav-link custom-nav-link" href="#">random</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link custom-nav-link" href="#">favourites</a>
+          </li>
+        </ul>
       </nav>
     </header>
 
     <section class="container-sm">
-      <h1 class="container-title">Lorem Ipsum</h1>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+      <h1 class="custom-title">Lorem Ipsum</h1>
+      <div class="container mt-3 d-flex">
+        <div class="row justify-content-center">
+          <div class="card m-3" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+          <div class="card m-3" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
+          <div class="card m-3" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm">
-              <button class="button-custom">Get new Cocktails!</button>
-            </div>
-            <div class="col-sm"></div>
-          </div>
-        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <button class="custom-button my-3">Get new Cocktails!</button>
       </div>
     </section>
   </body>

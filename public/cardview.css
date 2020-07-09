@@ -1,26 +1,30 @@
 /*nuove classi*/
-.navbar-background-color {
-  background-color: #6335e1;
-}
-
-.background-container {
+.custom-container {
   background-color: #9955f0;
 }
 
-.container-title {
+.custom-navbar {
+  background-color: #6335e1;
+}
+
+.custom-navbar-brand {
   color: white;
 }
 
+.custom-nav-link {
+  color: white;
+}
 
-.button-custom {
-  margin-top: 2rem;
-  align-self: center;
-  position: absolute;
+.custom-title {
+  color: white;
+  padding: 2rem 0 0 1.25rem;
+}
+
+.custom-button {
   background-color: #21fff2;
   border-color: #21fff2;
   border-radius: 45px;
   padding: 17px 24px;
-  font-weight: bold; 
-  color:#9955F0;
+  font-weight: bold;
+  color: #9955f0;
 }
-
