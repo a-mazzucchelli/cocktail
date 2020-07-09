@@ -46,6 +46,53 @@ main {
   justify-content: center;
 }
 
+/*style che usano le card*/
+.btn.btn-custom {
+	position: absolute;
+	top: 0;
+	right: -1rem;
+	color : white;
+	text-shadow: 2px 0 0 #626262c5, -2px 0 0 #626262c5, 0 2px 0 #626262c5, 0 -2px 0 #626262c5, 1px 1px #626262c5, -1px -1px 0 #626262c5, 1px -1px 0 #626262c5, -1px 1px 0 #626262c5;
+}
+.card-title-custom {
+	display: inline-flex;
+	text-align: left;
+  text-shadow: 2px 0 0 #d6aaff85, -2px 0 0 #d6aaff85, 0 2px 0 #d6aaff85, 0 -2px 0 #d6aaff85, 1px 1px #d6aaff85, -1px -1px 0 #d6aaff85, 1px -1px 0 #d6aaff85, -1px 1px 0 #d6aaff85;
+	margin-top: -4.5rem;
+	margin-left: 0.5rem;
+}
+.card-ingredients {
+	display: inline-flex;
+  text-shadow: 2px 0 0 #d6aaff85, -2px 0 0 #d6aaff85, 0 2px 0 #d6aaff85, 0 -2px 0 #d6aaff85, 1px 1px #d6aaff85, -1px -1px 0 #d6aaff85, 1px -1px 0 #d6aaff85, -1px 1px 0 #d6aaff85;
+	margin-left: 0.5rem;
+}
+.cocktail-card {
+	background-color: #bd77ffa2;
+}
+.icon{
+	max-width: 22%;
+	max-height: 22%;
+}
+.card-text-custom {
+	position: relative;
+	top: 1rem;
+}
+.cocktail-card-img-top {
+	width: 200px;
+	margin: 1rem auto;
+	align-self: center;
+	position: absolute;
+	top: 1rem;
+}
+.cocktail-card {
+	width: 18rem;
+	text-align: center;
+	margin-right: 3rem;
+}
+
+
+
+/* bottone*/
 .custom-button {
   background-color: #21fff2;
   border-color: #21fff2;
