@@ -1,8 +1,14 @@
+html {
+  height: 100%;
+}
 body {
   display: flex;
   flex-flow: column;
-  height: 100vh;
-  background-image: linear-gradient(to bottom left, #9955f0, #6335e1);
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(to bottom left, #9955F0, #6335E1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar a:hover {
