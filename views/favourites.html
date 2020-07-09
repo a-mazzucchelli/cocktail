@@ -21,7 +21,7 @@
 
         <ul class="navbar-nav flex-row">
           <li class="nav-item">
-            <a class="nav-link pr-3 custom-navbar-link" href="/random"
+            <a class="nav-link pr-3 custom-navbar-link" href="/cardview"
               >random</a
             >
           </li>
@@ -46,19 +46,23 @@
           </tr>
         </thead>
         <tr class="bordered"></tr>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
     </main>
 
     <script>
-      console.log(document.cookie);
+      const cookieString = document.cookie;
+
+      const cookieStringNew = cookieString.slice(0, cookieString.length - 1);
+      console.log(cookieStringNew);
+
+      const cookieStringArray = cookieStringNew.split(',');
+      console.log(cookieStringArray);
+
+      const cookieStringSet = [...new Set(cookieStringArray)];
+      console.log(cookieStringSet);
+
+      
     </script>
   </body>
 </html>

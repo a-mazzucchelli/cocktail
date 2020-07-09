@@ -98,3 +98,7 @@ main {
   font-weight: bold;
   color: #9955f0;
 }
+.custom-button:focus {
+  border: none;
+  outline: none;
+}

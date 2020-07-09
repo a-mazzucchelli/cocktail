@@ -57,32 +57,48 @@
           </div>
 
           <div id="cocktail-2" class="card cocktail-card m-3">
-            <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
+            <img
+              src="..."
+              class="card-img-top cocktail-card-img-top-custom"
+              alt="..."
+            />
             <h4 class="card-title card-title-custom"></h4>
             <h5 class="card-ingredients">Ingredients</h5>
             <a id="addFav-2" role="button" class="btn btn-custom">
-              Add to <img src="https://img.icons8.com/emoji/48/000000/glowing-star.png" class="icon"/>
-             
+              Add to
+              <img
+                src="https://img.icons8.com/emoji/48/000000/glowing-star.png"
+                class="icon"
+              />
             </a>
-            <p class="card-text card-text-custom "></p>
+            <p class="card-text card-text-custom"></p>
             <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
 
           <div id="cocktail-3" class="card cocktail-card m-3">
-            <img src="..." class="card-img-top cocktail-card-img-top-custom " alt="...">
+            <img
+              src="..."
+              class="card-img-top cocktail-card-img-top-custom"
+              alt="..."
+            />
             <h4 class="card-title card-title-custom"></h4>
             <h5 class="card-ingredients">Ingredients</h5>
             <a id="addFav-3" role="button" class="btn btn-custom">
-              Add to <img src="https://img.icons8.com/emoji/48/000000/glowing-star.png" class="icon"/>
+              Add to
+              <img
+                src="https://img.icons8.com/emoji/48/000000/glowing-star.png"
+                class="icon"
+              />
             </a>
-            <p class="card-text card-text-custom "></p>
+            <p class="card-text card-text-custom"></p>
             <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
-
         </div>
       </div>
       <div class="row d-flex justify-content-center">
-        <button id="shuffle" class="custom-button my-3">Get new Cocktails!</button>
+        <button id="shuffle" class="custom-button my-3">
+          Get new Cocktails!
+        </button>
       </div>
     </main>
     <script>
@@ -117,9 +133,9 @@
         const ingredientsArray = [];
         for (const property in drink) {
           if (
-            property.includes("strIngredient") &&
+            property.includes('strIngredient') &&
             drink[property] !== null &&
-            drink[property] !== ""
+            drink[property] !== ''
           ) {
             //178320
             ingredientsArray.push(drink[property]);
@@ -133,7 +149,7 @@
 
         // generate html to append to <ul class="list-group list-group-flush">
         const cardList = document.querySelector(`#${idString} .list-group`);
-        let listItemsHtml = "";
+        let listItemsHtml = '';
         ingredientsArray.forEach((ingredient) => {
           listItemsHtml += `<li class="list-group-item">${ingredient}</li>`;
         });
@@ -144,7 +160,7 @@
       // given an idString, "call" axios to display a new cocktail
       const shuffle = (idString) => {
         axios
-          .get("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+          .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
           .then((response) => {
             const cocktail = response.data.drinks[0];
             displayDrink(cocktail, idString);
@@ -184,10 +200,10 @@
 
       // button listener (shuffle)
       const btnShuffle = document.querySelector(`#shuffle`);
-      btnShuffle.addEventListener("click", () => {
-        shuffle("cocktail-1");
-        shuffle("cocktail-2");
-        shuffle("cocktail-3");
+      btnShuffle.addEventListener('click', () => {
+        shuffle('cocktail-1');
+        shuffle('cocktail-2');
+        shuffle('cocktail-3');
       });
 
       // button listeners (add to favourites)
@@ -211,10 +227,31 @@
       //   addFavRow(drinkId);
       // });
 
+      let drinkIdStringList = '';
+
+      btnAddFav1.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
+      });
+      btnAddFav2.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
+      });
+      btnAddFav3.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
+      });
+
       // display cocktail info at 1st visit
-      shuffle("cocktail-1");
-      shuffle("cocktail-2");
-      shuffle("cocktail-3");
+      shuffle('cocktail-1');
+      shuffle('cocktail-2');
+      shuffle('cocktail-3');
     </script>
   </body>
 </html>
