@@ -12,6 +12,8 @@
       crossorigin="anonymous"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="common.js"></script>
   </head>
   <body>
     <header>
@@ -211,41 +213,20 @@
       const btnAddFav2 = document.querySelector(`#addFav-2`);
       const btnAddFav3 = document.querySelector(`#addFav-3`);
 
-      // btnAddFav1.addEventListener("click", () => {
-      //   const drinkId = document.querySelector("#cocktail-1 .card-subtitle")
-      //     .textContent;
-      //   addFavRow(drinkId);
-      // });
-      // btnAddFav2.addEventListener("click", () => {
-      //   const drinkId = document.querySelector("#cocktail-2 .card-subtitle")
-      //     .textContent;
-      //   addFavRow(drinkId);
-      // });
-      // btnAddFav3.addEventListener("click", () => {
-      //   const drinkId = document.querySelector("#cocktail-3 .card-subtitle")
-      //     .textContent;
-      //   addFavRow(drinkId);
-      // });
-
-      let drinkIdStringList = '';
-
       btnAddFav1.addEventListener('click', () => {
         const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
           .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
+        addToFavourites(drinkId);
       });
       btnAddFav2.addEventListener('click', () => {
         const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
           .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
+        addToFavourites(drinkId);
       });
       btnAddFav3.addEventListener('click', () => {
         const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
           .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
+        addToFavourites(drinkId);
       });
 
       // display cocktail info at 1st visit

@@ -6,7 +6,7 @@ body {
   flex-flow: column;
   height: 100%;
   margin: 0;
-  background-image: linear-gradient(to bottom left, #9955F0, #6335E1);
+  background-image: linear-gradient(to bottom left, #9955f0, #6335e1);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -46,4 +46,13 @@ main {
 .custom-table {
   padding: 0 1.5rem;
   background-color: transparent;
+}
+
+.custom-table a {
+  color: white;
+}
+
+.custom-table a:hover {
+  color: white;
+  text-decoration: underline;
 }
