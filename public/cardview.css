@@ -29,6 +29,10 @@ body {
   color: white;
 }
 
+.custom-navbar-item-active {
+ font-weight: 700;
+}
+
 main {
   height: 100%;
 }
