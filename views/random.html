@@ -113,18 +113,6 @@
       Get new Cocktails !
     </button>
 
-    <!-- <table class="table favourites-table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Cocktail Id</th>
-          <th scope="col">Cocktail Name</th>
-          <th scope="col">Cocktail Category</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table> -->
-
     <script>
       //auxiliary functions
 
@@ -186,56 +174,59 @@
 
       // given an idString, add a row with cocktail info to the Favourites Table
       // counter to know how many favourites have been added, also used in the first column of the table
-      let favCounter = 0;
-      const addFavRow = (idString) => {
-        axios
-          .get(
-            `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idString}`
-          )
-          .then((response) => {
-            const cocktail = response.data.drinks[0];
-            const favTable = document.querySelector('.favourites-table tbody');
+      // let favCounter = 0;
+      // const addFavRow = (idString) => {
+      //   axios
+      //     .get(
+      //       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idString}`
+      //     )
+      //     .then((response) => {
+      //       const cocktail = response.data.drinks[0];
+      //       const favTable = document.querySelector('.favourites-table tbody');
 
-            // create new row
-            const row = favTable.insertRow(favCounter);
-            const favNumberCell = row.insertCell(0);
-            const favIdCell = row.insertCell(1);
-            const favNameCell = row.insertCell(2);
-            const favCategoryCell = row.insertCell(3);
+      //       // create new row
+      //       const row = favTable.insertRow(favCounter);
+      //       const favNumberCell = row.insertCell(0);
+      //       const favIdCell = row.insertCell(1);
+      //       const favNameCell = row.insertCell(2);
+      //       const favCategoryCell = row.insertCell(3);
 
-            // fill cells content
-            favNumberCell.innerHTML = favCounter + 1;
-            // TASK voglio che questo id sia un link alla route "/cocktail?drinkId=idDrink"
-            favIdCell.innerHTML = `<a href="/cocktail?drinkId=${cocktail.idDrink}">${cocktail.idDrink}</a>`;
-            favNameCell.innerHTML = cocktail.strDrink;
-            favCategoryCell.innerHTML = cocktail.strCategory;
+      //       // fill cells content
+      //       favNumberCell.innerHTML = favCounter + 1;
+      //       // TASK voglio che questo id sia un link alla route "/cocktail?drinkId=idDrink"
+      //       favIdCell.innerHTML = `<a href="/cocktail?drinkId=${cocktail.idDrink}">${cocktail.idDrink}</a>`;
+      //       favNameCell.innerHTML = cocktail.strDrink;
+      //       favCategoryCell.innerHTML = cocktail.strCategory;
 
-            // adjust number of favourites added
-            favCounter++;
-          });
-      };
-
-      // given and idString, push it in an array to serve as a cookie to favourites.html
-
-      // let idConcate
-      // const addToFavourites = (idString) => {};
+      //       // adjust number of favourites added
+      //       favCounter++;
+      //     });
+      // };
 
       // button listener (add to favourites)
       const btnAddFav1 = document.querySelector(`#addFav-1`);
       const btnAddFav2 = document.querySelector(`#addFav-2`);
       const btnAddFav3 = document.querySelector(`#addFav-3`);
 
-      let buttonPressed = ''
+      let drinkIdStringList = '';
 
       btnAddFav1.addEventListener('click', () => {
-        // const drinkId = document.querySelector('#cocktail-1 .card-subtitle');
-        document.cookie = `buttonPressed=1; path=/favourites`;
+        const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
       });
       btnAddFav2.addEventListener('click', () => {
-        document.cookie = `buttonPressed=2; path=/favourites`;
+        const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
       });
       btnAddFav3.addEventListener('click', () => {
-        document.cookie = `buttonPressed=3; path=/favourites`;
+        const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
+          .textContent;
+        drinkIdStringList += `${drinkId},`;
+        document.cookie = `${drinkIdStringList}; path=/favourites`;
       });
 
       // button listener (shuffle)
@@ -255,17 +246,6 @@
       //   const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
       //     .textContent;
       //   addFavRow(drinkId);
-      // });
-      // btnAddFav2.addEventListener('click', () => {
-      //   const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
-      //     .textContent;
-      //   addFavRow(drinkId);
-      // });
-      // btnAddFav3.addEventListener('click', () => {
-      //   const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
-      //     .textContent;
-      //   addFavRow(drinkId);
-      // });
 
       // display cocktail info at 1st visit
       shuffle('cocktail-1');
