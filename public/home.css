@@ -5,8 +5,12 @@
   margin: 0;
 }
 
-header {
-  background-color: #6335E1;
+body {
+  background-color: #6E3BE4;
+}
+
+.custom-navbar {
+  background-color: #6335e1;
 }
 
 .section-logo {
@@ -46,7 +50,7 @@ header {
 }
 
 body {
-  height: 100%;
+  display: inline;
   background-color: #6E3BE4;
   text-align: left;
 }
