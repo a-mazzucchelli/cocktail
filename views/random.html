@@ -3,116 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Cocktail</title>
+    <title>view card</title>
+    <link rel="stylesheet" href="css/cardview.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/random.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="js/common.js"></script>
   </head>
-
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand pl-2" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav pl-3">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-          </ul>
-        </div>
+      <nav
+        class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar"
+      >
+        <a class="navbar-brand pl-2 custom-navbar-brand" href="/home">Logo</a>
+
+        <ul class="navbar-nav d-flex flex-row pl-3">
+          <li class="nav-item pr-3 custom-navbar-item-active">
+            <a class="nav-link custom-nav-link" href="/random">random</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link custom-nav-link" href="/favourites"
+              >favourites</a
+            >
+          </li>
+        </ul>
       </nav>
     </header>
 
-    <section class="container card-container">
-      <div class="row card-row">
-        <div id="cocktail-1" class="card col p-1 cocktail-card">
-          <img src="..." class="card-img-top cocktail-card-img-top" alt="..." />
-          <h3 class="card-title"></h3>
-          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
-          <p class="card-text d-none"></p>
-          <h6 class="text-muted">Ingredients</h6>
-          <ul class="list-group list-group-flush"></ul>
-          <div class="button-sect">
-            <button
-              id="addFav-1"
-              type="button"
-              class="btn btn-info btn-lg btn-block"
-            >
-              Add to Favourites
-            </button>
+    <main class="container-sm">
+      <h1 class="custom-title">Lorem Ipsum</h1>
+      <div class="container mt-3 d-flex custom-container">
+        <div class="row justify-content-center">
+          <div id="cocktail-1" class="card cocktail-card m-3">
+            <img
+              src="..."
+              class="card-img-top cocktail-card-img-top-custom gradient"
+              alt="..."
+            />
+            <h4 class="card-title card-title-custom"></h4>
+            <h5 class="card-ingredients">Ingredients</h5>
+            <a id="addFav-1" role="button" class="btn btn-custom">
+              Add to
+              <img
+                src="https://img.icons8.com/emoji/48/000000/glowing-star.png"
+                class="icon"
+              />
+            </a>
+            <p class="card-text card-text-custom"></p>
+            <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
-        </div>
 
-        <div id="cocktail-2" class="card col p-1 cocktail-card">
-          <img src="..." class="card-img-top cocktail-card-img-top" alt="..." />
-          <h3 class="card-title"></h3>
-          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
-          <p class="card-text d-none"></p>
-          <h6 class="text-muted">Ingredients</h6>
-          <ul class="list-group list-group-flush"></ul>
-          <div class="button-sect">
-            <button
-              id="addFav-2"
-              type="button"
-              class="btn btn-info btn-lg btn-block"
-            >
-              Add to Favourites
-            </button>
+          <div id="cocktail-2" class="card cocktail-card m-3">
+            <img
+              src="..."
+              class="card-img-top cocktail-card-img-top-custom"
+              alt="..."
+            />
+            <h4 class="card-title card-title-custom"></h4>
+            <h5 class="card-ingredients">Ingredients</h5>
+            <a id="addFav-2" role="button" class="btn btn-custom">
+              Add to
+              <img
+                src="https://img.icons8.com/emoji/48/000000/glowing-star.png"
+                class="icon"
+              />
+            </a>
+            <p class="card-text card-text-custom"></p>
+            <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
-        </div>
 
-        <div id="cocktail-3" class="card col p-1 mr-0 cocktail-card">
-          <img src="..." class="card-img-top cocktail-card-img-top" alt="..." />
-          <h3 class="card-title"></h3>
-          <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
-          <p class="card-text d-none"></p>
-          <h6 class="text-muted">Ingredients</h6>
-          <ul class="list-group list-group-flush"></ul>
-          <div class="button-sect">
-            <button
-              id="addFav-3"
-              type="button"
-              class="btn btn-info btn-lg btn-block"
-            >
-              Add to Favourites
-            </button>
+          <div id="cocktail-3" class="card cocktail-card m-3">
+            <img
+              src="..."
+              class="card-img-top cocktail-card-img-top-custom"
+              alt="..."
+            />
+            <h4 class="card-title card-title-custom"></h4>
+            <h5 class="card-ingredients">Ingredients</h5>
+            <a id="addFav-3" role="button" class="btn btn-custom">
+              Add to
+              <img
+                src="https://img.icons8.com/emoji/48/000000/glowing-star.png"
+                class="icon"
+              />
+            </a>
+            <p class="card-text card-text-custom"></p>
+            <h6 class="card-subtitle mb-2 text-muted d-none"></h6>
           </div>
         </div>
       </div>
-    </section>
-
-    <button
-      id="shuffle"
-      type="button"
-      class="btn btn-primary btn-lg btn-block button-shuffle"
-    >
-      Get new Cocktails !
-    </button>
-
+      <div class="row d-flex justify-content-center">
+        <button id="shuffle" class="custom-button my-3">
+          Get new Cocktails!
+        </button>
+      </div>
+    </main>
     <script>
       //auxiliary functions
 
@@ -153,13 +143,20 @@
             ingredientsArray.push(drink[property]);
           }
         }
+        const cardIngredients = document.querySelector(
+          `#${idString} .card-ingredients`
+        );
+        const nIngredients = ingredientsArray.length;
+        cardIngredients.textContent = `${nIngredients} ingredients`;
+
         // generate html to append to <ul class="list-group list-group-flush">
         const cardList = document.querySelector(`#${idString} .list-group`);
         let listItemsHtml = '';
         ingredientsArray.forEach((ingredient) => {
           listItemsHtml += `<li class="list-group-item">${ingredient}</li>`;
         });
-        cardList.innerHTML = listItemsHtml;
+
+        /* cardList.innerHTML = listItemsHtml; */
       };
 
       // given an idString, "call" axios to display a new cocktail
@@ -182,7 +179,7 @@
       //     )
       //     .then((response) => {
       //       const cocktail = response.data.drinks[0];
-      //       const favTable = document.querySelector('.favourites-table tbody');
+      //       const favTable = document.querySelector(".favourites-table tbody");
 
       //       // create new row
       //       const row = favTable.insertRow(favCounter);
@@ -203,32 +200,6 @@
       //     });
       // };
 
-      // button listener (add to favourites)
-      const btnAddFav1 = document.querySelector(`#addFav-1`);
-      const btnAddFav2 = document.querySelector(`#addFav-2`);
-      const btnAddFav3 = document.querySelector(`#addFav-3`);
-
-      let drinkIdStringList = '';
-
-      btnAddFav1.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
-          .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
-      });
-      btnAddFav2.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
-          .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
-      });
-      btnAddFav3.addEventListener('click', () => {
-        const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
-          .textContent;
-        drinkIdStringList += `${drinkId},`;
-        document.cookie = `${drinkIdStringList}; path=/favourites`;
-      });
-
       // button listener (shuffle)
       const btnShuffle = document.querySelector(`#shuffle`);
       btnShuffle.addEventListener('click', () => {
@@ -238,14 +209,25 @@
       });
 
       // button listeners (add to favourites)
-      // const btnAddFav1 = document.querySelector(`#addFav-1`);
-      // const btnAddFav2 = document.querySelector(`#addFav-2`);
-      // const btnAddFav3 = document.querySelector(`#addFav-3`);
+      const btnAddFav1 = document.querySelector(`#addFav-1`);
+      const btnAddFav2 = document.querySelector(`#addFav-2`);
+      const btnAddFav3 = document.querySelector(`#addFav-3`);
 
-      // btnAddFav1.addEventListener('click', () => {
-      //   const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
-      //     .textContent;
-      //   addFavRow(drinkId);
+      btnAddFav1.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-1 .card-subtitle')
+          .textContent;
+        addToFavourites(drinkId);
+      });
+      btnAddFav2.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-2 .card-subtitle')
+          .textContent;
+        addToFavourites(drinkId);
+      });
+      btnAddFav3.addEventListener('click', () => {
+        const drinkId = document.querySelector('#cocktail-3 .card-subtitle')
+          .textContent;
+        addToFavourites(drinkId);
+      });
 
       // display cocktail info at 1st visit
       shuffle('cocktail-1');
