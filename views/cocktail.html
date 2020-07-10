@@ -1,110 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/cocktail.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Cocktail page</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/cocktail.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-  <title>Cocktail page</title>
-</head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar"
+      >
+        <a class="navbar-brand pl-3 custom-navbar-brand" href="/home">Logo</a>
 
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item">
+            <a class="nav-link pr-3 custom-navbar-link" href="/random"
+              >random</a
+            >
+          </li>
+          <li class="nav-item custom-navbar-item-active">
+            <a class="nav-link custom-navbar-link" href="/favourites"
+              >favourites</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar">
-      <a class="navbar-brand pl-3 custom-navbar-brand" href="/home">Logo</a>
-
-      <ul class="navbar-nav flex-row">
-        <li class="nav-item">
-          <a class="nav-link pr-3 custom-navbar-link" href="/random">random</a>
-        </li>
-        <li class="nav-item custom-navbar-item-active">
-          <a class="nav-link custom-navbar-link" href="/favourites">favourites</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="m-4">
-
-    <h1 class="drink-name">Here's:</h1>
-    <h6 class="drink-id">Cocktail id:</h6>
-    <div class="d-flex mt-3">
-      <div class="w-50 ">
-        <h4>Ingredients:</h4>
-        <ul class="drink-ingredients-list"></ul>
+    <section class="m-4">
+      <h1 class="drink-name">Here's:</h1>
+      <h6 class="drink-id">Cocktail id:</h6>
+      <div class="d-flex mt-3">
+        <div class="w-50">
+          <h4>Ingredients:</h4>
+          <ul class="drink-ingredients-list"></ul>
+        </div>
+        <div class="w-50">
+          <h4>Description:</h4>
+          <p class="drink-desc"></p>
+          <form>
+            <div>
+              <p>Rating</p>
+              <input type="radio" id="r-1" name="rating" value="1" />
+              <label for="r-1">1</label><br />
+              <input type="radio" id="r-2" name="rating" value="2" />
+              <label for="r-2">2</label><br />
+              <input type="radio" id="r-3" name="rating" value="3" />
+              <label for="r-3">3</label><br />
+              <input type="radio" id="r-4" name="rating" value="4" />
+              <label for="r-4">4</label><br />
+              <input type="radio" id="r-5" name="rating" value="5" />
+              <label for="r-5">5</label><br />
+            </div>
+            <div>
+              <button type="submit">Enter</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="w-50">
-        <h4>Description: </h4>
-        <p class="drink-desc "></p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    //prendo id url
-    const urlParams = new URLSearchParams(window.location.search);
-    const drinkIdParam = urlParams.get('drinkId');
+    <script>
+      //prendo id url
+      const urlParams = new URLSearchParams(window.location.search);
+      const drinkIdParam = urlParams.get('drinkId');
 
-    //popola elementi html
-    axios
-      .get(
-        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkIdParam}`
-      )
-      .then((response) => {
-        const cocktail = response.data.drinks[0];
+      //popola elementi html
+      axios
+        .get(
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkIdParam}`
+        )
+        .then((response) => {
+          const cocktail = response.data.drinks[0];
 
-        // fill drink-name
-        const drinkName = document.querySelector('.drink-name');
-        drinkName.textContent += ` ${cocktail.strDrink}`;
+          // fill drink-name
+          const drinkName = document.querySelector('.drink-name');
+          drinkName.textContent += ` ${cocktail.strDrink}`;
 
-        // fill drink-id
-        const drinkId = document.querySelector('.drink-id');
-        drinkId.textContent += ` ${cocktail.idDrink}`;
+          // fill drink-id
+          const drinkId = document.querySelector('.drink-id');
+          drinkId.textContent += ` ${cocktail.idDrink}`;
 
-        // create ingredients array
-        const ingredientsArray = [];
-        for (const property in cocktail) {
-          if (
-            property.includes('strIngredient') &&
-            cocktail[property] !== null &&
-            cocktail[property] !== ''
-          ) {
-            ingredientsArray.push(cocktail[property]);
+          // create ingredients array
+          const ingredientsArray = [];
+          for (const property in cocktail) {
+            if (
+              property.includes('strIngredient') &&
+              cocktail[property] !== null &&
+              cocktail[property] !== ''
+            ) {
+              ingredientsArray.push(cocktail[property]);
+            }
           }
-        }
-        // create ingredient measures array
-        const ingredientsMeasuresArray = [];
-        for (const property in cocktail) {
-          if (property.includes('strMeasure') && cocktail[property] !== '') {
-            ingredientsMeasuresArray.push(cocktail[property]);
+          // create ingredient measures array
+          const ingredientsMeasuresArray = [];
+          for (const property in cocktail) {
+            if (property.includes('strMeasure') && cocktail[property] !== '') {
+              ingredientsMeasuresArray.push(cocktail[property]);
+            }
           }
-        }
 
-        // create ingredients list items with measures (when measure is specified)
-        const ingredientsList = document.querySelector(
-          '.drink-ingredients-list'
-        );
-        let listIngredientsHtml = '';
-        ingredientsArray.forEach((ingredient, index) => {
-          const currentIngrMeasure = ingredientsMeasuresArray[index];
-          if (currentIngrMeasure !== null) {
-            listIngredientsHtml += `<li>${ingredient}: ${currentIngrMeasure}</li>`;
-          } else {
-            listIngredientsHtml += `<li>${ingredient}</li>`;
-          }
+          // create ingredients list items with measures (when measure is specified)
+          const ingredientsList = document.querySelector(
+            '.drink-ingredients-list'
+          );
+          let listIngredientsHtml = '';
+          ingredientsArray.forEach((ingredient, index) => {
+            const currentIngrMeasure = ingredientsMeasuresArray[index];
+            if (currentIngrMeasure !== null) {
+              listIngredientsHtml += `<li>${ingredient}: ${currentIngrMeasure}</li>`;
+            } else {
+              listIngredientsHtml += `<li>${ingredient}</li>`;
+            }
+          });
+          ingredientsList.innerHTML = listIngredientsHtml;
+
+          // fill drink-desc
+          const drinkDesc = document.querySelector('.drink-desc');
+          drinkDesc.textContent += ` ${cocktail.strInstructions}`;
         });
-        ingredientsList.innerHTML = listIngredientsHtml;
-
-        // fill drink-desc
-        const drinkDesc = document.querySelector('.drink-desc');
-        drinkDesc.textContent += ` ${cocktail.strInstructions}`;
-      });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
