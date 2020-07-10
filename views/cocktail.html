@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/cocktail.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <title>Cocktail page</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/cocktail.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <title>Cocktail page</title>
+</head>
+
+
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar">
+      <a class="navbar-brand pl-3 custom-navbar-brand" href="/home">Logo</a>
+
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link pr-3 custom-navbar-link" href="/random">random</a>
+        </li>
+        <li class="nav-item custom-navbar-item-active">
+          <a class="nav-link custom-navbar-link" href="/favourites">favourites</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="m-4">
+
     <h1 class="drink-name">Here's:</h1>
     <h6 class="drink-id">Cocktail id:</h6>
-    <h4>Ingredients:</h4>
-    <ul class="drink-ingredients-list"></ul>
-    <p class="drink-desc">Step-by-step description:</p>
-    <script>
-      //prendo id url
-      const urlParams = new URLSearchParams(window.location.search);
-      const drinkIdParam = urlParams.get('drinkId');
+    <div class="d-flex mt-3">
+      <div class="w-50 ">
+        <h4>Ingredients:</h4>
+        <ul class="drink-ingredients-list"></ul>
+      </div>
+      <div class="w-50">
+        <h4>Description: </h4>
+        <p class="drink-desc "></p>
+      </div>
+    </div>
+  </section>
 
-      //popola elementi html
-      axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkIdParam}`
-        )
-        .then((response) => {
-          const cocktail = response.data.drinks[0];
+  <script>
+    //prendo id url
+    const urlParams = new URLSearchParams(window.location.search);
+    const drinkIdParam = urlParams.get('drinkId');
 
-          // fill drink-name
-          const drinkName = document.querySelector('.drink-name');
-          drinkName.textContent += ` ${cocktail.strDrink}`;
+    //popola elementi html
+    axios
+      .get(
+        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkIdParam}`
+      )
+      .then((response) => {
+        const cocktail = response.data.drinks[0];
 
-          // fill drink-id
-          const drinkId = document.querySelector('.drink-id');
-          drinkId.textContent += ` ${cocktail.idDrink}`;
+        // fill drink-name
+        const drinkName = document.querySelector('.drink-name');
+        drinkName.textContent += ` ${cocktail.strDrink}`;
 
-          // create ingredients array
-          const ingredientsArray = [];
-          for (const property in cocktail) {
-            if (
-              property.includes('strIngredient') &&
-              cocktail[property] !== null &&
-              cocktail[property] !== ''
-            ) {
-              ingredientsArray.push(cocktail[property]);
-            }
+        // fill drink-id
+        const drinkId = document.querySelector('.drink-id');
+        drinkId.textContent += ` ${cocktail.idDrink}`;
+
+        // create ingredients array
+        const ingredientsArray = [];
+        for (const property in cocktail) {
+          if (
+            property.includes('strIngredient') &&
+            cocktail[property] !== null &&
+            cocktail[property] !== ''
+          ) {
+            ingredientsArray.push(cocktail[property]);
           }
-          // create ingredient measures array
-          const ingredientsMeasuresArray = [];
-          for (const property in cocktail) {
-            if (property.includes('strMeasure') && cocktail[property] !== '') {
-              ingredientsMeasuresArray.push(cocktail[property]);
-            }
+        }
+        // create ingredient measures array
+        const ingredientsMeasuresArray = [];
+        for (const property in cocktail) {
+          if (property.includes('strMeasure') && cocktail[property] !== '') {
+            ingredientsMeasuresArray.push(cocktail[property]);
           }
+        }
 
-          // create ingredients list items with measures (when measure is specified)
-          const ingredientsList = document.querySelector(
-            '.drink-ingredients-list'
-          );
-          let listIngredientsHtml = '';
-          ingredientsArray.forEach((ingredient, index) => {
-            const currentIngrMeasure = ingredientsMeasuresArray[index];
-            if (currentIngrMeasure !== null) {
-              listIngredientsHtml += `<li>${ingredient}: ${currentIngrMeasure}</li>`;
-            } else {
-              listIngredientsHtml += `<li>${ingredient}</li>`;
-            }
-          });
-          ingredientsList.innerHTML = listIngredientsHtml;
-
-          // fill drink-desc
-          const drinkDesc = document.querySelector('.drink-desc');
-          drinkDesc.textContent += ` ${cocktail.strInstructions}`;
+        // create ingredients list items with measures (when measure is specified)
+        const ingredientsList = document.querySelector(
+          '.drink-ingredients-list'
+        );
+        let listIngredientsHtml = '';
+        ingredientsArray.forEach((ingredient, index) => {
+          const currentIngrMeasure = ingredientsMeasuresArray[index];
+          if (currentIngrMeasure !== null) {
+            listIngredientsHtml += `<li>${ingredient}: ${currentIngrMeasure}</li>`;
+          } else {
+            listIngredientsHtml += `<li>${ingredient}</li>`;
+          }
         });
-    </script>
-  </body>
+        ingredientsList.innerHTML = listIngredientsHtml;
+
+        // fill drink-desc
+        const drinkDesc = document.querySelector('.drink-desc');
+        drinkDesc.textContent += ` ${cocktail.strInstructions}`;
+      });
+  </script>
+</body>
+
 </html>

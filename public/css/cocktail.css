@@ -1,3 +1,36 @@
-body {
-  margin: 2rem;
+html {
+  height: 100%;
 }
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  background-image: linear-gradient(to bottom left, #9955f0, #6335e1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color:white;
+  
+}
+
+.navbar a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.custom-navbar {
+  background-color: #6335e1;
+}
+
+.custom-navbar-brand {
+  color: white;
+  font-weight: lighter;
+}
+
+.custom-navbar-link {
+  color: white;
+  font-weight: lighter;
+}
+
+/* .custom-navbar-item-active {
+  font-weight: 800;
+} */
