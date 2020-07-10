@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search</title>
+  <link rel="stylesheet" href="css/search.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="js/common.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg d-flex justify-content-between custom-navbar">
+      <a class="navbar-brand pl-2 custom-navbar-brand" href="/home">Logo</a>
+
+      <ul class="navbar-nav d-flex flex-row pl-3">
+        <li class="nav-item pr-3">
+          <a class="nav-link custom-nav-link custom-navbar-item-active" href="/search">search</a>
+        </li>
+        <li class="nav-item pr-3">
+          <a class="nav-link custom-nav-link" href="/random">random</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="/favourites">favourites</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <h1>Selected ingredient</h1>
+    <div class="container">
+      <div class="row row-cols-4">
+        <div id="col-1" class="col"></div>
+        <div id="col-2" class="col"></div>
+        <div id="col-3" class="col"></div>
+        <div id="col-4" class="col"></div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <button id="shuffle" class="custom-button my-3">
+        Search your drink!
+      </button>
+    </div>
+
+    <table class="table table-borderless table-dark custom-table">
+      <thead class="custom-thead">
+        <tr>
+          <!-- <th scope="col"></th> -->
+          <th scope="col">Cocktail</th>
+          <!--   <th scope="col">Category</th> -->
+          <th scope="col">Glass</th>
+        </tr>
+      </thead>
+      <tr class="bordered"></tr>
+      <tbody>
+
+      </tbody>
+    </table>
+
+  </main>
+  <script>
+    axios.
+      get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
+      .then((response) => {
+        const ingredients = response.data.drinks;
+        ingredients.forEach((ingredient) => {
+          const columnIngredients = document.querySelector('#col-1');
+           columnIngredients.innerHTML += ingredient.strIngredient1
+          console.log(ingredient.strIngredient1)
+        })
+
+      })
+  </script>
+</body>
+
+</html>

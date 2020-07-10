@@ -21,6 +21,10 @@ app.get('/cocktail', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/cocktail.html'));
 });
 
+app.get('/search', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/search.html'));
+});
+
 app.get('/favourites', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/favourites.html'));
 });

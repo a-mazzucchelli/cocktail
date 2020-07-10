@@ -1,0 +1,55 @@
+header {
+  background-color: #6335e1;
+}
+
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  margin: 0;
+  background-image: linear-gradient(to bottom left, #9955f0, #6335e1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.custom-navbar {
+  background-color: #6335e1;
+}
+
+.custom-navbar a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.custom-navbar-brand {
+  color: white;
+}
+
+.custom-nav-link {
+  color: white;
+}
+.custom-navbar-item-active {
+  font-weight: 800;
+}
+
+.custom-text {
+  color: white;
+  padding: 2rem 1.25rem 0 1.25rem;
+}
+
+.custom-button {
+  background-color: #21fff2;
+  border-color: #21fff2;
+  border-radius: 45px;
+  padding: 17px 24px;
+  font-weight: bold;
+  /* position: absolute; */
+  /* bottom: 5rem; */
+}
+
+.custom-button a {
+  color: #6335e1;
+}
